@@ -4,7 +4,8 @@ public class findMax {
     // other comparison operator. EXAMPLE Input: 5, 10 Output: 10
 
     public static int findMaxNum(int firstNum, int secondNum) {
-        return (firstNum > secondNum ? firstNum: secondNum);
+        int result = String.valueOf(firstNum).
+        // return (firstNum > secondNum ? firstNum: secondNum);
 
     }
 
