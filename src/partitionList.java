@@ -9,10 +9,27 @@ public class partitionList {
 
     }
 
+    public void partitionLinkList(checkPalindrome list, int value) {
+        LinkNode cur = list.root;
+        checkPalindrome lst1 = new checkPalindrome();
+        checkPalindrome lst2 = new checkPalindrome();
+        while(cur != null) {
+            if(cur.data < value) {
+                lst1.addNode(cur.data);
+            }else {
+                lst2.addNode(cur.data);
+            }
+            cur = cur.next;
+        }
+
+        // constructed the 2 list and now we can add both of the list
+
+    }
+
 
     public static void main(String[] args) {
         checkPalindrome list = new checkPalindrome();
-        list.addNode(12);
+        list.addNode(6);
         list.addNode(3);
         list.addNode(5);
         list.addNode(8);
