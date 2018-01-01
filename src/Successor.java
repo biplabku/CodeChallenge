@@ -33,8 +33,6 @@ public class Successor {
 
         // in-order successor or the next node. Higher than the current node but smallest one
         public TreeNode findinOrderSuccessor(TreeNode nnode) {
-            System.out.println(nnode.rightChild.data);
-
             if(nnode == null) {
                 return null;
             }

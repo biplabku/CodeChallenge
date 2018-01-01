@@ -52,6 +52,7 @@ public class checkPalindrome {
         checkPalindrome ch = new checkPalindrome();
         ch.addNode(1);
         ch.addNode(2);
+        ch.addNode(4);
         ch.addNode(2);
         ch.addNode(1);
         ch.display();

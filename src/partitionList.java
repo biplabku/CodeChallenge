@@ -21,9 +21,22 @@ public class partitionList {
             }
             cur = cur.next;
         }
-
         // constructed the 2 list and now we can add both of the list
-
+        LinkNode head1 = lst1.root;
+        LinkNode head2 = lst2.root;
+        LinkNode tmp =null;
+        while(head1 != null) {
+           tmp =  head1;
+           head1 = head1.next;
+        }
+        while(head2 != null) {
+            tmp.next = head2;
+            head2 = head2.next;
+        }
+        head1 = lst1.root;
+        while(head1 != null) {
+            System.out.println(head1.data);
+        }
     }
 
 

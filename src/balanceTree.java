@@ -47,6 +47,7 @@ public class balanceTree {
             return true;
         }
         int diff = getHeight(node.leftChild) - getHeight(node.rightChild);
+        System.out.println(diff + " l " + getHeight(node.leftChild) + " r " + getHeight(node.rightChild) );
         if(Math.abs(diff ) > 1) {
             return false;
         } else {

@@ -9,6 +9,7 @@ public class sumLinkList {
     public sumLinkList() {
     }
 
+
     public static void display(checkPalindrome list) {
         LinkNode cur = list.root;
         while(cur != null) {
@@ -62,6 +63,7 @@ public class sumLinkList {
         link1.addNode(7);
         link1.addNode(1);
         link1.addNode(6);
+        // link1.addNode(2);
         checkPalindrome link2 = new checkPalindrome();
         link2.addNode(5);
         link2.addNode(9);
