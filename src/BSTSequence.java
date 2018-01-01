@@ -53,7 +53,7 @@ public class BSTSequence {
                 list.add(nnode.data);
                 constBSTArray(nnode.leftChild, nnode1, count);
                 constBSTArray(nnode.rightChild, nnode1, count);
-            }else{
+            }else if(nnode1 != null && count == 0){
                 list1.add(nnode1.data);
                 constBSTArray(nnode, nnode1.rightChild, count);
                 constBSTArray(nnode, nnode1.leftChild, count);
@@ -64,7 +64,6 @@ public class BSTSequence {
         public void addList(TreeNode root1, TreeNode root2) {
             int count = 1;
             constBSTArray(root1, root2, 1);
-            System.out.println(list);
             hmap.put(0, list);
             count = 0;
             constBSTArray(root1, root2, count);
@@ -84,7 +83,7 @@ public class BSTSequence {
             TreeNode root = bst.root;
             //bst.constBSTArray(root, root,);
             bst.addList(root, root);
-            // System.out.println(bst.hmap);
+            System.out.println(bst.hmap);
             // bst.inOrder(root);
         }
 
