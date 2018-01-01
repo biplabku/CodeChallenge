@@ -4,13 +4,20 @@ public class listDepths {
     // at each depth(ex. if you have a tree with Depth D, you will have D linkedList)
 
     public TreeNode root;
+    public checkPalindrome list;
 
     public listDepths() {
 
     }
 
-    public TreeNode findDepths(TreeNode nnode) {
+    public boolean checkChild(TreeNode nnode) {
+        if(nnode)
+    }
 
+    public TreeNode findDepths(TreeNode nnode) {
+        if(nnode != null) {
+
+        }
     }
 
 
