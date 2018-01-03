@@ -10,8 +10,9 @@ public class listDepths {
 
     }
 
+    /*
     public boolean checkChild(TreeNode nnode) {
-        if(nnode)
+
     }
 
     public TreeNode findDepths(TreeNode nnode) {
@@ -19,7 +20,7 @@ public class listDepths {
 
         }
     }
-
+ */
 
     public TreeNode inOrder(TreeNode nnode) {
         if(nnode != null) {

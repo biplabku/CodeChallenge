@@ -1,9 +1,9 @@
 public class vertex {
-    int data;
+    int label;
     boolean isVisited;
 
     public vertex(int value) {
-        data = value;
+        label = value;
         isVisited = false;
     }
 }
