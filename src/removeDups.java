@@ -1,3 +1,5 @@
+import sun.plugin.javascript.navig4.Link;
+
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -8,10 +10,17 @@ public class removeDups {
 
     }
 
-    public checkPalindrome removeDuplicateElements(LinkNode nnode) {
-        HashMap<Integer, Integer> hmap = new HashMap<>();
+    public void removeDuplicateElements(LinkNode nnode) {
+        LinkNode prev = null;
+        HashSet<Integer> hset = new HashSet<>();
         while(nnode != null) {
-            
+            if(hset.contains(nnode.data)) {
+                prev.next = nnode.next;
+            }else {
+                hset.add(nnode.data);
+                prev = nnode;
+            }
+            nnode = nnode.next;
         }
     }
 
@@ -29,8 +38,9 @@ public class removeDups {
         lst.addNode(1);
         lst.addNode(12);
         lst.addNode(8);
-        lst.display();
+        //lst.display();
         removeDups rp = new removeDups();
         rp.removeDuplicateElements(lst.root);
+        lst.display();
     }
 }
