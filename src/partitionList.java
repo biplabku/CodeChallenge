@@ -5,50 +5,71 @@ public class partitionList {
     // the elements less than x. the partition element can appear anywhere in the right partition.,
     // it does not need to appear between left and right partitions
 
+    public LinkNode root;
     public partitionList() {
 
+        root = null;
     }
 
-    public void partitionLinkList(checkPalindrome list, int value) {
-        LinkNode cur = list.root;
-        checkPalindrome lst1 = new checkPalindrome();
-        checkPalindrome lst2 = new checkPalindrome();
+    public void addNode(int val) {
+
+        LinkNode nnode = new LinkNode(val);
+        if(root == null) {
+            root = nnode;
+        }else {
+            LinkNode cur = root;
+            while(cur.next != null) {
+                cur = cur.next;
+            }
+            cur.next = nnode;
+        }
+    }
+
+
+    public void display() {
+        LinkNode cur = root;
         while(cur != null) {
-            if(cur.data < value) {
-                lst1.addNode(cur.data);
+            System.out.println(cur.data);
+            cur = cur.next;
+        }
+    }
+
+
+    public void partitionList(LinkNode cur, int val) {
+        checkPalindrome list = new checkPalindrome();
+        checkPalindrome list2 = new checkPalindrome();
+        LinkNode last = null;
+        while(cur != null) {
+            if(cur.data < val) { // for nodes value less than
+                list.addNode(cur.data);
+                last = cur;
             }else {
-                lst2.addNode(cur.data);
+                list2.addNode(cur.data);
             }
             cur = cur.next;
         }
-        // constructed the 2 list and now we can add both of the list
-        LinkNode head1 = lst1.root;
-        LinkNode head2 = lst2.root;
-        LinkNode tmp =null;
-        while(head1 != null) {
-           tmp =  head1;
-           head1 = head1.next;
+        LinkNode root2 = list2.root;
+        while(root2 != null) {
+            list.addNode(root2.data);
+            root2 = root2.next;
         }
-        while(head2 != null) {
-            tmp.next = head2;
-            head2 = head2.next;
-        }
-        head1 = lst1.root;
-        while(head1 != null) {
-            System.out.println(head1.data);
+        LinkNode cur1 = list.root;
+        while(cur1 != null) {
+            System.out.println(cur1.data);
+            cur1 = cur1.next;
         }
     }
 
-
     public static void main(String[] args) {
-        checkPalindrome list = new checkPalindrome();
-        list.addNode(6);
-        list.addNode(3);
-        list.addNode(5);
-        list.addNode(8);
-        list.addNode(9);
-        list.addNode(1);
-        list.addNode(0);
-        list.display();
+        partitionList ch = new partitionList();
+        ch.addNode(3);
+        ch.addNode(5);
+        ch.addNode(8);
+        ch.addNode(5);
+        ch.addNode(10);
+        ch.addNode(2);
+        ch.addNode(1);
+        ch.partitionList(ch.root, 5);
+
     }
 }
