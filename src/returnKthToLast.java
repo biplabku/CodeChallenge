@@ -22,7 +22,7 @@ public class returnKthToLast {
     public void display() {
         LinkNode cur = root;
         while(cur != null) {
-            System.out.println(cur.data);
+            System.out.print(cur.data + " ");
             cur = cur.next;
         }
     }
@@ -46,12 +46,19 @@ public class returnKthToLast {
         return true;
     }
 
-    public int returnKth(LinkNode node) {
+    public int returnKth(LinkNode node, int num) {
         int index1 = 0;
-        int index2 = 0;
+        LinkNode res = root;
         while(node != null) {
-            
+            if(index1 >= num){
+                index1++;
+                res = res.next;
+            }else {
+                index1++;
+            }
+            node = node.next;
         }
+        return res.data;
     }
 
     public static void main(String[] args) {
@@ -65,6 +72,7 @@ public class returnKthToLast {
         ch.addNode(9);
         ch.addNode(5);
         ch.display();
-        System.out.println(ch.isPalindrome());
+        System.out.println(" End of the sequence");
+        System.out.println("Kth element is given by -- > " + ch.returnKth(ch.root, 3) );
     }
 }
