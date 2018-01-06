@@ -28,7 +28,6 @@ public class loopDetection {
         LinkNode fast = nnode.next;
 
         while(slow != null && fast != null && fast.next != null) {
-            System.out.println(slow.data + " " + fast.data);
             if(slow.data == fast.data) {
                 return true;
             }
