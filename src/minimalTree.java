@@ -1,20 +1,15 @@
 public class minimalTree {
     // how to create a binary search tree with minimum height
-    public TreeNode root;
+    static TreeNode root;
 
-    public minimalTree() {
 
-    }
-
-    public void inOrder(TreeNode nnode) {
-        System.out.println(nnode.data);
-
+    public void preOrder(TreeNode nnode) {
         if(nnode == null) {
             return ;
         }
-        inOrder(nnode.leftChild);
         System.out.println(nnode.data);
-        inOrder(nnode.rightChild);
+        preOrder(nnode.leftChild);
+        preOrder(nnode.rightChild);
     }
 
     public TreeNode createBinarySearchTree(int[] array, int left, int right) {
@@ -24,8 +19,11 @@ public class minimalTree {
 
         int middle = (left + right)/2;
         TreeNode node = new TreeNode(array[middle]);
-        addNode(createBinarySearchTree(array, left, middle- 1).data);
-        addNode(createBinarySearchTree(array, middle + 1, right).data);
+
+        node.leftChild = createBinarySearchTree(array, left, middle- 1);
+
+        node.rightChild = createBinarySearchTree(array, middle + 1, right);
+
         return node;
     }
 
@@ -57,11 +55,11 @@ public class minimalTree {
     }
 
     public static void main(String[] args) {
-        balanceTree tree = new balanceTree();
-        int[] array = new int[] {1,2,3,4,5,6,7,8};
+        int[] array = new int[] {1,2,3,4,5,6,7};
+        int len = array.length;
         minimalTree mm = new minimalTree();
-        mm.createBinarySearchTree(array, 0, array.length - 1);
-        mm.inOrder(mm.root);
+        root = mm.createBinarySearchTree(array, 0, len -1);
+        mm.preOrder(mm.root);
 
     }
 }
