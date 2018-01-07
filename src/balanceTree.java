@@ -36,7 +36,25 @@ public class balanceTree {
     public TreeNode inOrder(TreeNode nnode) {
         if(nnode != null) {
             inOrder(nnode.leftChild);
+            System.out.println(nnode.data);
             inOrder(nnode.rightChild);
+        }
+        return null;
+    }
+
+    public TreeNode postOrder(TreeNode nnode) {
+        if(nnode != null) {
+            System.out.println(nnode.data);
+            postOrder(nnode.leftChild);
+            postOrder(nnode.rightChild);
+        }
+        return null;
+    }
+
+    public TreeNode preOrder(TreeNode nnode) {
+        if(nnode != null) {
+            preOrder(nnode.leftChild);
+            preOrder(nnode.rightChild);
             System.out.println(nnode.data);
         }
         return null;
