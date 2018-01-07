@@ -44,6 +44,8 @@ public class dfs {
 
 
     public void dfs() {
+        vertex v = vertexList[0];
+        v.isVisited = true;
         displayVertex(0);
         thestack.push(0);
         while(!thestack.isEmpty()) {
@@ -61,8 +63,13 @@ public class dfs {
         }
     }
 
+
+    public void addEdge(int start, int end) {
+        adjMat[start][end] = 1;
+        adjMat[end][start] = 1;
+    }
     public static void main(String[] args) {
-        graph gp = new graph();
+        dfs gp = new dfs();
         gp.addVertex('A');
         gp.addVertex( 'B');
         gp.addVertex('C');
@@ -72,8 +79,7 @@ public class dfs {
         gp.addEdge(0, 1);
         gp.addEdge(0, 3);
         gp.addEdge(3, 4);
-        dfs d = new dfs();
-        d.dfs();
+        gp.dfs();
     }
 
 }

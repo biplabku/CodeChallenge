@@ -1,8 +1,8 @@
 public class vertex {
-    int label;
+    char label;
     boolean isVisited;
 
-    public vertex(int value) {
+    public vertex(char value) {
         label = value;
         isVisited = false;
     }

@@ -135,6 +135,13 @@ public class bfs {
         return -1;
     }
 
+
+
+    public void addEdge(int start, int end) {
+        adjMat[start][end] = 1;
+        adjMat[end][start] = 1;
+    }
+
     public void bfs() {
         vertex v = vertexList[0];
         theQ.add(0);
@@ -142,7 +149,7 @@ public class bfs {
         v.isVisited = true;
         int v1;
         while(!theQ.isEmpty()) {
-            int v2 = (int)theQ.remove();
+            int v2 = (int)theQ.poll();
             while((v1 = getAdjacentVertex(v2)) != -1) {
                 vertexList[v1].isVisited = true;
                 displayVertex(v1);
@@ -152,7 +159,7 @@ public class bfs {
     }
 
     public static void main(String[] args) {
-        graph gp = new graph();
+        bfs gp = new bfs();
         gp.addVertex('A');
         gp.addVertex( 'B');
         gp.addVertex('C');
@@ -162,8 +169,7 @@ public class bfs {
         gp.addEdge(0, 1);
         gp.addEdge(0, 3);
         gp.addEdge(3, 4);
-        bfs b = new bfs();
-        b.bfs();
+        gp.bfs();
     }
 
 }

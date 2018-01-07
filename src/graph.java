@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class graph {
 
     // creating a class for both breadth first search and depth first search
@@ -5,11 +7,15 @@ public class graph {
     public int size = 10;
     public int[][] adjMat;
     public int nverts;
+    public int cursize;
+    public Stack<Integer> thestack;
 
     public graph() {
         nverts = -1;
         adjMat = new int[size][size];
         vertexList = new vertex[size];
+        cursize = 0;
+        thestack = new Stack<>();
         for(int  i = 0; i < size; i++) {
             for(int j = 0; j < size; j++) {
                 adjMat[i][j] = 0;
@@ -17,15 +23,45 @@ public class graph {
         }
     }
 
-    public void addVertex(int value) {
+    public void addVertex(char value) {
         vertex v = new vertex(value);
-        vertexList[nverts++] = v;
+        vertexList[++nverts] = v;
+        cursize++;
     }
 
 
     public void addEdge(int start, int end) {
         adjMat[start][end] = 1;
         adjMat[end][start] = 1;
+    }
+
+    public int getAdjacentVertex(int v) {
+        for(int i = 0; i < cursize; i++) {
+            if(adjMat[v][i] == 1 && vertexList[i].isVisited == false) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public void dfs() {
+        vertex v = vertexList[0];
+        v.isVisited = true;
+        displayVertex(0);
+        thestack.push(0);
+        while(!thestack.isEmpty()) {
+            int v2 = getAdjacentVertex(thestack.peek());
+            if(v2 == -1){
+                thestack.pop();
+            }else {
+                vertexList[v2].isVisited = true;
+                displayVertex(v2);
+                thestack.push(v2);
+            }
+        }
+        for(int i = 0; i < cursize; i++) {
+            vertexList[i].isVisited = false;
+        }
     }
 
     public void displayVertex(int v) {
@@ -36,18 +72,16 @@ public class graph {
 
     public static void main(String[] args) {
         graph gp = new graph();
-        gp.addVertex(1);
-        gp.addVertex(2);
-        gp.addVertex(3);
-        gp.addVertex(4);
-
+        gp.addVertex('A');
+        gp.addVertex( 'B');
+        gp.addVertex('C');
+        gp.addVertex('D');
+        gp.addVertex('E');
         gp.addEdge(1, 2);
-        gp.addEdge(1, 3);
-        gp.addEdge(2, 1);
-        gp.addEdge(2, 4);
-        gp.addEdge(3, 2);
-        gp.addEdge(4, 1);
-        gp.addEdge(4, 4);
+        gp.addEdge(0, 1);
+        gp.addEdge(0, 3);
+        gp.addEdge(3, 4);
+        gp.dfs();
     }
 
 }
