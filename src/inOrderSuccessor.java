@@ -1,6 +1,6 @@
 public class inOrderSuccessor {
 
-
+/*
     public TreeNode findSuccessor(TreeNode node) {
         if(node == null) {
             return null;
@@ -15,12 +15,17 @@ public class inOrderSuccessor {
             return child;
         }else { // lets say it does not contain any right child
             TreeNode q = node;
-            TreeNode 
+            TreeNode x = q.parent;
+            while(x != null && x.leftChild != q) {
+                q = x;
+                x = x.parent;
+            }
+            return x;
         }
     }
+    */
 
     public static void main(String[] args) {
-
 
     }
 }
