@@ -3,8 +3,10 @@ import java.util.HashMap;
 public class checkPalindrome {
     // Implement a function to check if a linkedlist is a palindrome.
     public LinkNode root;
+    public int tot_els;
     public checkPalindrome() {
         root = null;
+        tot_els = 0;
     }
 
     public void addNode(int val) {
@@ -18,6 +20,7 @@ public class checkPalindrome {
             }
             cur.next = nnode;
         }
+        tot_els++;
     }
 
 
