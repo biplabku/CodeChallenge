@@ -26,26 +26,27 @@ public class minSizeSubSum {
 
     public int findMinSize2(int[] array, int target) {
         String res = "";
-        int out = 0;
-        String r = "";
+        int sum = 0;
+        int out = array.length;
+        String str = "";
         for(int i  = 0; i < array.length; i++) {
             for(int j = i; j < array.length; j++) {
-                if(out == target ) {
-                    res = r;
-                    System.out.println(res + "j");
+                sum = sum + array[j];
+                res = res + array[j];
+                if(sum == target ) {
+                    out = Math.min(out, res.length());
+                    break;
                 }
-                out = out + array[j];
-                r = r + array[j];
             }
-            r = "";
-            out = 0;
+            sum = 0;
+            res ="";
         }
-        return res.length();
+        return out;
     }
 
     public static void main(String[] args) {
         minSizeSubSum ms = new minSizeSubSum();
-        int[] array = new int[]{2,3,1,2,4,3};
+        int[] array = new int[]{2,3,1,2,4,3, 7};
         int target = 7;
         System.out.println(ms.findMinSize2(array, target));
 

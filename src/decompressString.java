@@ -21,7 +21,7 @@ public class decompressString {
 
     public String deDecompressMethod2(String str) {
         StringBuilder sb = new StringBuilder();
-
+        return sb.toString();
     }
 
 
