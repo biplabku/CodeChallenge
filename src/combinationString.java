@@ -5,7 +5,7 @@ public class combinationString {
     // print all the possible combinations of the characters in a string.
 
 
-    public ArrayList<String> combinationString(String str, ArrayList<String> list) {
+    public void combinationString(String str, ArrayList<String> list) {
 
     }
 

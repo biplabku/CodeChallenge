@@ -34,8 +34,7 @@ public class permString {
     }
 
     public static void main(String[] args) {
-        permString list = new permString();
-
-        String str = "ABCDE";
+        permString list = new permString("ABCD");
+        list.findPermutation();
     }
 }
