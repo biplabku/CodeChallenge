@@ -5,7 +5,7 @@ public class reOrganizeString {
 
 
     public static String reOrganize(String str) {
-        
+        return "l";
     }
 
     public static void main(String[] args) {
