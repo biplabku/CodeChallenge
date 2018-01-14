@@ -6,21 +6,17 @@ public class getSuccessorMethod2 {
 
     }
 
-    public TreeNode findNode(TreeNode nd) {
-
-    }
-
     public static int getSuccessor(binarySearchTree cs, int value) {
         TreeNode rootq = cs.root;
         TreeNode node = null;
         while(rootq.data != value) {
-            node = rootq;
             if(rootq.data < value) {
                 rootq = rootq.leftChild;
             }else {
                 rootq = rootq.rightChild;
             }
         }
+        node = rootq;
         if(node == null) {
             return -1;
         }
