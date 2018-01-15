@@ -6,7 +6,7 @@ public class searchInRotatedArray {
 
 
     public  int search(int target, int left, int right) {
-        int mid = array[(0 + array.length)/2];
+        int mid = (left +right)/2;
         if(mid == target) {
             return mid;
         }
