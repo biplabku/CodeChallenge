@@ -15,7 +15,6 @@ public class sortDuplicateDesc {
             }
         }
 
-        for(int i = 0;)
     }
 
     public void display() {
