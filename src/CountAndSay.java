@@ -6,6 +6,7 @@ public class CountAndSay {
 
     public String findShortSequenceMethod1(int number) {
         String str = String.valueOf(number);
+        str = findShortSequenceMethod2(str);
         return str;
     }
 
@@ -40,6 +41,8 @@ public class CountAndSay {
     public static void main(String[] args) {
         CountAndSay cs = new CountAndSay();
         String str = "11223133";
+        int number = 11223133;
         System.out.println(cs.findShortSequenceMethod2(str));
+        System.out.println(cs.findShortSequenceMethod1(number));
     }
 }
