@@ -1,6 +1,6 @@
 import java.util.Stack;
 
-public class graph {
+public class minimumSpanningTree {
 
     // creating a class for both breadth first search and depth first search
     public vertex vertexList[];
@@ -10,7 +10,7 @@ public class graph {
     public int cursize;
     public Stack<Integer> thestack;
 
-    public graph() {
+    public minimumSpanningTree() {
         nverts = -1;
         adjMat = new int[size][size];
         vertexList = new vertex[size];
@@ -44,19 +44,21 @@ public class graph {
         return -1;
     }
 
-    public void dfs() {
-        vertex v = vertexList[0];
-        v.isVisited = true;
-        displayVertex(0);
+    public void mst() {
+        vertex v1 = vertexList[0];
+        v1.isVisited = true;
         thestack.push(0);
         while(!thestack.isEmpty()) {
-            int v2 = getAdjacentVertex(thestack.peek());
-            if(v2 == -1){
+            int currentVertex = thestack.peek();
+            int v = getAdjacentVertex(thestack.peek());
+            if(v == -1) {
                 thestack.pop();
             }else {
-                vertexList[v2].isVisited = true;
-                displayVertex(v2);
-                thestack.push(v2);
+                vertexList[v].isVisited = true;
+                thestack.push(v);
+                displayVertex(currentVertex);
+                displayVertex(v);
+                System.out.println(" ");
             }
         }
         for(int i = 0; i < cursize; i++) {
@@ -71,7 +73,7 @@ public class graph {
 
 
     public static void main(String[] args) {
-        graph theGraph = new graph();
+        minimumSpanningTree theGraph = new minimumSpanningTree();
         theGraph.addVertex('A');
         theGraph.addVertex( 'B');
         theGraph.addVertex('C');
@@ -87,7 +89,7 @@ public class graph {
         theGraph.addEdge(2, 3);
         theGraph.addEdge(2, 4);
         theGraph.addEdge(3, 4);
-        theGraph.dfs();
-    }
+        theGraph.mst();
 
+    }
 }

@@ -42,11 +42,13 @@ public class RemoveLinkNode {
             return;
         }
         LinkNode prev = cur;
-        while(cur.data != val) {
+        while(cur.data != val && cur != null) {
             prev = cur;
             cur = cur.next;
         }
-
+        if(prev.next.data != val) {
+            return;
+        }
         prev.next = cur.next;
         //prev.next = null;
     }
@@ -62,7 +64,7 @@ public class RemoveLinkNode {
         nn.addNode(9);
         nn.addNode(2);
 
-        nn.deleteNode( 5);
+        nn.deleteNode( 50);
         nn.display();
 
     }
