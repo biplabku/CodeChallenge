@@ -26,10 +26,32 @@ public class SlidingWindowMaximum {
         return max;
     }
 
+
+    public ArrayList<Integer> findMaxMethod2(int[] array, int num) {
+        ArrayList<Integer> list = new ArrayList<>();
+        int count = 0;
+        int max = array[count];
+        for(int i = 0; i < array.length; i++) {
+            if(count < num) {
+                if(max < array[i]) {
+                    max = array[i];
+                    System.out.println(i + " value " + list);
+
+                }
+                count++;
+            }else {
+                count = 0;
+            }
+        }
+        return list;
+    }
+
     public static void main(String[] args) {
         SlidingWindowMaximum ss = new SlidingWindowMaximum();
         int[] array = new int[] {1,3,-1,-3,5,3,6,7};
         int pos = 3;
-        System.out.println(ss.findMaxSlidingWindow(array, pos));
+        // System.out.println(ss.findMaxSlidingWindow(array, pos));
+        System.out.println(ss.findMaxMethod2(array, pos));
+
     }
 }
