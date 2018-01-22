@@ -1,3 +1,7 @@
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
 public class superReducedString {
 
     public static String findReduced(String str) {
@@ -31,11 +35,33 @@ public class superReducedString {
     }
 
 
-    public static void findRed
+    public static String findReduceString(String str) {
+        HashMap<Character, Integer> hmap = new HashMap<>();
+        for(int i = 0; i < str.length(); i++) {
+            if(!hmap.containsKey(str.charAt(i))) {
+                hmap.put(str.charAt(i) , 1);
+            }else {
+                hmap.put(str.charAt(i), hmap.get(str.charAt(i)) + 1);
+            }
+        }
+        StringBuilder sb = new StringBuilder();
+        Iterator it = hmap.entrySet().iterator();
+        while(it.hasNext()) {
+            Map.Entry entr = (Map.Entry)it.next();
+            int val = (Integer) entr.getValue();
+            if(val % 2 == 1) {
+                sb.append(entr.getKey());
+            }
+        }
+        if(sb.length() < 1) {
+            return "Empty String";
+        }
+        return sb.toString();
+    }
 
 
     public static void main(String[] args) {
-        String str = "aabbccabbc";
-        System.out.println(findReduced(str));
+        String str = "acdqglrfkqyuqfjkxyqvnrtysfrzrmzlygfveulqfpdbhlqdqrrqdqlhbdpfqluevfgylzmrzrfsytrnvqyxkjfquyqkfrlacdqj";
+        System.out.println(findReduceString(str));
     }
 }
