@@ -50,8 +50,8 @@ public class SlidingWindowMaximum {
         SlidingWindowMaximum ss = new SlidingWindowMaximum();
         int[] array = new int[] {1,3,-1,-3,5,3,6,7};
         int pos = 3;
-        // System.out.println(ss.findMaxSlidingWindow(array, pos));
-        System.out.println(ss.findMaxMethod2(array, pos));
+        System.out.println(ss.findMaxSlidingWindow(array, pos));
+        //System.out.println(ss.findMaxMethod2(array, pos));
 
     }
 }
