@@ -62,6 +62,6 @@ public class superReducedString {
 
     public static void main(String[] args) {
         String str = "acdqglrfkqyuqfjkxyqvnrtysfrzrmzlygfveulqfpdbhlqdqrrqdqlhbdpfqluevfgylzmrzrfsytrnvqyxkjfquyqkfrlacdqj";
-        System.out.println(findReduceString(str));
+        System.out.println(findReduced(str));
     }
 }
